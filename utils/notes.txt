@@ -1,0 +1,70 @@
+🎯 1. Classification supervisée → Régression
+
+	But : prédire le salaire brut annuel à partir des autres caractéristiques.
+
+	👉 Variables explicatives possibles dans l’API :
+
+		Secteur / domaine métier (informatique, santé, commerce…).
+
+		Localisation (région, département).
+
+		Type de contrat (CDI/CDD/alternance).
+
+		Expérience requise (junior, confirmé, senior).
+
+		Compétences (si listées).
+
+	👉 Méthodes en R :
+
+		Régression linéaire multiple (lm).
+
+		Arbre de régression (rpart).
+
+		Random Forest régression (randomForest).
+
+	👉 Exemple de questions :
+
+		Le secteur “Tech” paie-t-il vraiment plus que le “Commerce” ?
+
+		Quel est l’impact du type de contrat sur le salaire proposé ?
+
+		Quelles régions offrent les salaires les plus compétitifs ?
+
+🎯 2. Classification non supervisée → Clustering
+
+	But : trouver des profils types d’offres selon salaire et caractéristiques.
+
+	👉 Exemples de clusters :
+
+		Offres à fort salaire : surtout CDI, Île-de-France, domaine Tech.
+
+		Offres à salaire moyen : commerce, santé, province, CDD.
+
+		Offres à bas salaire : emplois saisonniers, contrats courts.
+
+	👉 Méthodes en R :
+
+		K-means sur un jeu de variables numériques (salaire, expérience, région codée).
+
+		CAH (Classification Ascendante Hiérarchique).
+
+	👉 Résultat attendu :
+		Une cartographie des profils d’emplois, qui complète ton modèle de prédiction.
+
+🎯 3. Règles d’association → Patterns salaire/compétences
+
+	But : trouver les combinaisons fréquentes de variables qui mènent à un niveau de salaire.
+
+	👉 Exemples de règles :
+
+		{Python, SQL, CDI} → {Salaire > 40k€}.
+
+		{CDD, PACA, Tourisme} → {Salaire < 25k€}.
+
+		{CDI, Île-de-France, Management} → {Salaire > 50k€}.
+
+	👉 Méthodes en R :
+
+		arules package (Apriori).
+
+		Tu peux discretiser le salaire en classes (ex : bas / moyen / haut) pour rendre l’association plus lisible.
