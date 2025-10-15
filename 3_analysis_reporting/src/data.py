@@ -15,8 +15,7 @@ def truncate_text(text, max_len=80):
 
 def data_page():
     st.markdown("<h3>Data | Quick Overview</h3>", unsafe_allow_html=True)
-    st.write("This section provides a quick overview of the dataset used for job offers analysis.")
-    st.write("#### First 10 Rows of the Dataset")
+    st.write("#### Les 10 premières lignes de l'ensemble de données")
 
     store_data = load_data()
     
