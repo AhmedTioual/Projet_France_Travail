@@ -9,7 +9,7 @@ from streamlit_folium import st_folium
 
 @st.cache_data  
 def load_data():
-    df = pd.read_csv("data/clean_francetravail.csv")
+    df = pd.read_csv("3_analysis_reporting/data/clean_francetravail.csv")
     return df
 
 @st.cache_data
