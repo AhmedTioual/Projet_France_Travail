@@ -138,3 +138,5 @@ def show_clustering():
     * **Métiers** : câbleur d’armoires électriques, administrateur de serveurs  
     * **Profil résumé** : groupe marginal et atypique, peu représentatif du cœur de l’échantillon (probable cluster d’outliers).
     """)
+
+    st.markdown("<br>", unsafe_allow_html=True)
