@@ -161,6 +161,50 @@ def plot_contract_distribution(df, contract_col='typeContrat', top_n=3, height=4
     
     return fig
 
+def plot_wordcloud(df, text_col='description', max_words=100, width=600, height=500):
+    # Combine all text
+    text = ' '.join(df[text_col].dropna().astype(str)).lower()
+    
+    # Remove stopwords
+    words = [word for word in text.split() if word not in STOPWORDS and len(word) > 2]
+    
+    # Count frequencies
+    word_freq = Counter(words)
+    most_common = word_freq.most_common(max_words)
+    
+    if not most_common:
+        fig = go.Figure()
+        fig.add_annotation(text="No words to display", x=0.5, y=0.5, showarrow=False)
+        return fig
+
+    words, freqs = zip(*most_common)
+    
+    # Random positions
+    import numpy as np
+    np.random.seed(42)
+    x = np.random.rand(len(words))
+    y = np.random.rand(len(words))
+    
+    # Create figure
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=x,
+        y=y,
+        text=words,
+        mode='text',
+        textfont=dict(size=[10 + f*2 for f in freqs], color='black'),
+    ))
+    
+    fig.update_layout(
+        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        height=height,
+        width=width,
+        template="plotly_white"
+    )
+    
+    return fig
+
 def show_accueil():
     
     df = load_data()
@@ -194,6 +238,17 @@ def show_accueil():
         
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    st.subheader("Offres d'emploi par type de contrat")
-    st.plotly_chart(plot_contract_distribution(df), use_container_width=False)
+    # Create two columns
+    col1, col2 = st.columns(2)
+
+    # Call the function inside the first column
+    with col1:
+        st.subheader("Offres d'emploi par type de contrat")
+        st.plotly_chart(plot_contract_distribution(df), use_container_width=False)
+        
+    with col2:
+        st.subheader("Nuage de mots sur la description de poste")
+        st.plotly_chart(plot_wordcloud(df), use_container_width=False)
+    
+    
 
