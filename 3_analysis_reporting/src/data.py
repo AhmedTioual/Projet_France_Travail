@@ -4,7 +4,7 @@ import streamlit_shadcn_ui as ui
 
 @st.cache_data  
 def load_data():
-    df = pd.read_csv("data/raw_francetravail.csv")
+    df = pd.read_csv("3_analysis_reporting/data/raw_francetravail.csv")
     return df
     
 def truncate_text(text, max_len=80):
