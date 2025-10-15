@@ -161,7 +161,7 @@ def plot_contract_distribution(df, contract_col='typeContrat', top_n=3, height=4
     
     return fig
 
-def plot_wordcloud(df, text_col='description', max_words=100, width=600, height=500):
+def plot_wordcloud(df, text_col='intitule', max_words=100, width=600, height=500):
     # Combine all text
     text = ' '.join(df[text_col].dropna().astype(str)).lower()
     
