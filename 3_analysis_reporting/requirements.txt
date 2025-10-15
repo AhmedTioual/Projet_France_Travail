@@ -1,0 +1,8 @@
+plotly
+scikit-learn==1.6.1
+streamlit-option-menu
+streamlit_shadcn_ui
+folium
+streamlit_folium
+xgboost
+seaborn
