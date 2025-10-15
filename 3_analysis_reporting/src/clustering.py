@@ -33,7 +33,7 @@ def show_feature_sample(df, cols_cat, cols_num):
 
 @st.cache_data  
 def load_data():
-    df = pd.read_csv("data/francetravail_salaire_normalise.csv")
+    df = pd.read_csv("3_analysis_reporting/data/francetravail_salaire_normalise.csv")
     return df
 
 def salary_overview(df):
@@ -97,16 +97,16 @@ def show_clustering():
 
     # --- Display elbow plot ---
     with col1:
-        st.image("static/elbow.png", caption="Méthode du coude", use_container_width=True)
+        st.image("3_analysis_reporting/static/elbow.png", caption="Méthode du coude", use_container_width=True)
 
     # --- Display silhouette plot ---
     with col2:
-        st.image("static/selhoute.png", caption="Score de silhouette", use_container_width=True)
+        st.image("3_analysis_reporting/static/selhoute.png", caption="Score de silhouette", use_container_width=True)
 
     st.subheader("Profils des clusters identifiés (K-Means, k=3)")
 
     # --- Display numeric results ---
-    prof_num = pd.read_csv("data/clustering_results.csv")
+    prof_num = pd.read_csv("3_analysis_reporting/data/clustering_results.csv")
     st.dataframe(prof_num, use_container_width=True)
 
     # --- Cluster 0 ---
