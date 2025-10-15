@@ -165,49 +165,33 @@ def plot_contract_distribution(df, contract_col='typeContrat', top_n=3, height=4
     
     return fig
 
-def plot_wordcloud(df, text_col='intitule', max_words=100, width=600, height=500):
-    # Combine all text
-    text = ' '.join(df[text_col].dropna().astype(str)).lower()
-    
-    # Remove stopwords
-    words = [word for word in text.split() if word not in STOPWORDS and len(word) > 2]
-    
-    # Count frequencies
-    word_freq = Counter(words)
-    most_common = word_freq.most_common(max_words)
-    
-    if not most_common:
-        fig = go.Figure()
-        fig.add_annotation(text="No words to display", x=0.5, y=0.5, showarrow=False)
-        return fig
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
+import streamlit as st
 
-    words, freqs = zip(*most_common)
+def plot_wordcloud(df, text_col='intitule', max_words=100, width=800, height=400):
+    # Combine all text from the column
+    text = ' '.join(df[text_col].dropna().astype(str))
     
-    # Random positions
-    import numpy as np
-    np.random.seed(42)
-    x = np.random.rand(len(words))
-    y = np.random.rand(len(words))
+    # Optional stopwords
+    stopwords = set(STOPWORDS)
     
-    # Create figure
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=x,
-        y=y,
-        text=words,
-        mode='text',
-        textfont=dict(size=[10 + f*2 for f in freqs], color='black'),
-    ))
-    
-    fig.update_layout(
-        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-        height=height,
+    # Create word cloud
+    wordcloud = WordCloud(
         width=width,
-        template="plotly_white"
-    )
+        height=height,
+        background_color='white',
+        stopwords=stopwords,
+        max_words=max_words
+    ).generate(text)
     
-    return fig
+    # Create a figure
+    fig, ax = plt.subplots(figsize=(width/100, height/100))
+    ax.imshow(wordcloud, interpolation='bilinear')
+    ax.axis('off')
+    
+    # Display in Streamlit
+    st.pyplot(fig)
 
 def show_accueil():
     
@@ -252,7 +236,7 @@ def show_accueil():
         
     with col2:
         st.subheader("Nuage de mots sur la description de poste")
-        st.plotly_chart(plot_wordcloud(df), use_container_width=False)
-    
+        plot_wordcloud(df, max_words=150)
+
     
 
