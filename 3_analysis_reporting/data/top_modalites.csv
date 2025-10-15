@@ -1,0 +1,38 @@
+cluster,typeContrat,pct,variable,natureContrat,secteurActiviteLibelle,experienceExige,romeLibelle
+0,CDI,0.8205426356589147,typeContrat,,,,
+0,MIS,0.08139534883720931,typeContrat,,,,
+0,CDD,0.07403100775193798,typeContrat,,,,
+1,CDI,0.7006920415224913,typeContrat,,,,
+1,CDD,0.2050173010380623,typeContrat,,,,
+1,MIS,0.07439446366782007,typeContrat,,,,
+2,MIS,0.75,typeContrat,,,,
+2,CDI,0.25,typeContrat,,,,
+0,,0.9658914728682171,natureContrat,Contrat travail,,,
+0,,0.023255813953488372,natureContrat,Emploi non salarié,,,
+0,,0.004263565891472868,natureContrat,CDI de chantier ou d'opération,,,
+1,,0.8555363321799307,natureContrat,Contrat travail,,,
+1,,0.12197231833910034,natureContrat,Contrat apprentissage,,,
+1,,0.01384083044982699,natureContrat,Emploi non salarié,,,
+2,,1.0,natureContrat,Contrat travail,,,
+0,,0.31976744186046513,secteurActiviteLibelle,,,,
+0,,0.1387596899224806,secteurActiviteLibelle,,Activités des agences de travail temporaire,,
+0,,0.1127906976744186,secteurActiviteLibelle,,Conseil en systèmes et logiciels informatiques,,
+1,,0.6003460207612457,secteurActiviteLibelle,,,,
+1,,0.10294117647058823,secteurActiviteLibelle,,Activités des agences de travail temporaire,,
+1,,0.07093425605536333,secteurActiviteLibelle,,Conseil en systèmes et logiciels informatiques,,
+2,,0.75,secteurActiviteLibelle,,Activités des agences de travail temporaire,,
+2,,0.25,secteurActiviteLibelle,,Fabrication d'équipements aérauliques et frigorifiques industriels,,
+0,,0.8794573643410852,experienceExige,,,E,
+0,,0.12054263565891472,experienceExige,,,S,
+1,,0.9818339100346021,experienceExige,,,D,
+1,,0.018166089965397925,experienceExige,,,S,
+2,,0.5,experienceExige,,,D,
+2,,0.5,experienceExige,,,E,
+0,,0.12364341085271317,romeLibelle,,,,Développeur / Développeuse informatique
+0,,0.11744186046511627,romeLibelle,,,,Développeur / Développeuse web
+0,,0.05465116279069768,romeLibelle,,,,Chef / Cheffe de projet Maîtrise d'Ouvrage des Systèmes d'Information (MOA)
+1,,0.0847750865051903,romeLibelle,,,,Développeur / Développeuse web
+1,,0.052768166089965395,romeLibelle,,,,Scrum Master
+1,,0.05103806228373702,romeLibelle,,,,Ingénieur / Ingénieure d'étude informatique
+2,,0.75,romeLibelle,,,,Câbleur / Câbleuse d'armoires
+2,,0.25,romeLibelle,,,,Administrateur / Administratrice de serveurs
