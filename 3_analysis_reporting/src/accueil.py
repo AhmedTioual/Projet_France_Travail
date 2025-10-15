@@ -189,10 +189,11 @@ def show_accueil():
         st.subheader("Carte des offres d'emploi")
         st_data = st_folium(plot_offers_map(df), width=600, height=500)
     with col2:
-        st.subheader("Offres d'emploi par type de contrat")
-        st.plotly_chart(plot_contract_distribution(df), use_container_width=False)
-
+        st.subheader("Offres d'emploi au fil du temps")
+        st.plotly_chart(plot_offers_per_month(df), use_container_width=False)
+        
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    st.subheader("Offres d'emploi au fil du temps")
-    st.plotly_chart(plot_offers_per_month(df), use_container_width=False)
+    st.subheader("Offres d'emploi par type de contrat")
+    st.plotly_chart(plot_contract_distribution(df), use_container_width=False)
+
