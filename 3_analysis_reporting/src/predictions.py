@@ -10,7 +10,7 @@ import joblib
 
 @st.cache_data  
 def load_clean_data():
-    df = pd.read_csv("data/raw_francetravail.csv")
+    df = pd.read_csv("3_analysis_reporting/data/raw_francetravail.csv")
     return df
     
 def job_offer_form():
@@ -99,7 +99,7 @@ def job_offer_form():
 
 @st.cache_data  
 def load_data():
-    df = pd.read_csv("data/all_classifiers_metrics.csv")
+    df = pd.read_csv("3_analysis_reporting/data/all_classifiers_metrics.csv")
     return df
 
 def plot_classifier_accuracies(df, report_col='test_report', classifier_col='classifier', height=500, width=800):
