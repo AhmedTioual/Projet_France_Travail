@@ -59,7 +59,7 @@ def job_offer_form():
         employeurHandiEngage = st.checkbox("Employeur Handi Engagé", value=False)
 
         # --- Submit button ---
-        submitted = st.form_submit_button("Créer l’offre")
+        submitted = st.form_submit_button("Prédire")
 
         if submitted:
             new_job = pd.DataFrame([{
@@ -591,7 +591,7 @@ def show_predictions():
         
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    st.subheader("Model Performance Comparison")
+    st.subheader("Comparaison des performances des modèles")
 
     col1,col2,col3,col4,col5 = st.tabs(["Overall Accuracy","Balanced Accuracy: CV vs Test", "F1 Macro","Jaccard", "ROC-AUC"])
 
@@ -612,9 +612,9 @@ def show_predictions():
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    st.subheader("Model Matrices Comparison")
+    st.subheader("Comparaison des matrices de modèles")
 
-    col1,col2 = st.tabs(["Confusion Matrices by Classifier","Classification Reports per Classifier"])
+    col1,col2 = st.tabs(["Matrices de confusion par classificateur","Rapports de classification par classificateur"])
 
     with col1:
         st.plotly_chart(plot_confusion_matrices(df), use_container_width=True)  
