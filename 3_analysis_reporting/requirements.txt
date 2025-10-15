@@ -6,3 +6,4 @@ folium
 streamlit_folium
 xgboost
 seaborn
+wordcloud
