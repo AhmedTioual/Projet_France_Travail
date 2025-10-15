@@ -17,7 +17,7 @@ def get_img_as_base64(file):
         data = f.read()
     return base64.b64encode(data).decode()
 
-img = get_img_as_base64("static/background.png")
+#img = get_img_as_base64("static/background.png")
 
 css = f"""
     <style>
@@ -26,7 +26,6 @@ css = f"""
         header {{visibility: hidden;}}
 
         [data-testid="stAppViewContainer"] {{
-            /*background-image: url("data:image/png;base64,{img}");*/
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
