@@ -121,6 +121,7 @@ def plot_top_communes(df, commune_col='lieuTravail.libelle', top_n=10, height=50
     )
     return fig
 
+
 def plot_contract_distribution(df, contract_col='typeContrat', top_n=3, height=400, width=400):
     # Drop rows without contract type
     df_contract = df.dropna(subset=[contract_col])
@@ -137,29 +138,25 @@ def plot_contract_distribution(df, contract_col='typeContrat', top_n=3, height=4
         contract_counts,
         values='total_offers',
         names=contract_col,
-        title=f"Distribution of Job Offers by Contract Type (Top {top_n})",
+        title=None,
         color_discrete_sequence=px.colors.qualitative.Pastel,
         height=height,
         width=width
     )
     
-    # Center the pie and place text inside
-    fig.update_traces(
-        textposition='inside',
-        textinfo='percent+label',
-        pull=[0]*top_n,
-        domain={'x': [0, 1], 'y': [0, 1]}
-    )
+    # Pie chart labels inside
+    fig.update_traces(textposition='inside', textinfo='percent+label')
     
-    # Move legend to the top
+    # Legend at top, centered, horizontal
     fig.update_layout(
         legend=dict(
-            orientation="h",  # horizontal
-            yanchor="bottom",
-            y=1.02,           # slightly above the plot
-            xanchor="center",
+            orientation='h',
+            yanchor='bottom',
+            y=1.05,  # slightly above the plot
+            xanchor='center',
             x=0.5
-        )
+        ),
+        margin=dict(t=80, b=50, l=50, r=50)  # adjust top margin for title + legend
     )
     
     return fig
