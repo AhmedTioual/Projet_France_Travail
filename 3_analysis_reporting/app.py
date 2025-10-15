@@ -3,7 +3,7 @@ import base64
 from processing.cleaning import TextCleaner
 from streamlit_option_menu import option_menu
 from src.accueil import show_accueil
-from src.clustering import *
+from src.clustering import show_clustering
 from src.data import data_page
 from src.predictions import show_predictions
 
@@ -17,7 +17,7 @@ def get_img_as_base64(file):
         data = f.read()
     return base64.b64encode(data).decode()
 
-# img = get_img_as_base64("static/background.png")
+img = get_img_as_base64("static/background.png")
 
 css = f"""
     <style>
@@ -26,7 +26,7 @@ css = f"""
         header {{visibility: hidden;}}
 
         [data-testid="stAppViewContainer"] {{
-            
+            /*background-image: url("data:image/png;base64,{img}");*/
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -67,6 +67,6 @@ if selected == "Accueil":
 if selected == "Prédictions":
     show_predictions()
 if selected == "Analyse de Clustering":
-    pass
+    show_clustering()
 if selected == "Données":
     data_page()
