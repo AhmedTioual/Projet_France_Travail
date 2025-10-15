@@ -2,9 +2,6 @@ import streamlit as st
 import pandas as pd
 import streamlit_shadcn_ui as ui
 
-# Load the dataset
- = pd.read_csv("data/raw_francetravail.csv")
-
 @st.cache_data  
 def load_data():
     df = pd.read_csv("data/raw_francetravail.csv")
