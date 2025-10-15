@@ -9,6 +9,7 @@ from streamlit_folium import st_folium
 from collections import Counter
 from wordcloud import STOPWORDS
 import numpy as np
+import plotly.graph_objects as go
 
 @st.cache_data  
 def load_data():
