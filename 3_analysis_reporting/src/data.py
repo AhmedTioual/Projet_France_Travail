@@ -3,8 +3,13 @@ import pandas as pd
 import streamlit_shadcn_ui as ui
 
 # Load the dataset
-store_data = pd.read_csv("data/raw_francetravail.csv")
+ = pd.read_csv("data/raw_francetravail.csv")
 
+@st.cache_data  
+def load_data():
+    df = pd.read_csv("data/raw_francetravail.csv")
+    return df
+    
 def truncate_text(text, max_len=80):
     """Truncate long strings for table display."""
     if isinstance(text, str) and len(text) > max_len:
@@ -16,6 +21,8 @@ def data_page():
     st.write("This section provides a quick overview of the dataset used for job offers analysis.")
     st.write("#### First 10 Rows of the Dataset")
 
+    store_data = load_data()
+    
     # --- Prepare Data ---
     df = store_data.head(10).copy()
 
