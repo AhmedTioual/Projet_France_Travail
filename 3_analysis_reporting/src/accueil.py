@@ -142,7 +142,12 @@ def plot_contract_distribution(df, contract_col='typeContrat', top_n=3, height=4
         height=height,
         width=width
     )
-    fig.update_traces(textposition='inside', textinfo='percent+label')
+    
+    # Center the pie
+    fig.update_traces(textposition='inside', textinfo='percent+label', 
+                      pull=[0]*top_n,  # optional: no pull for slices
+                      domain={'x': [0, 1], 'y': [0, 1]})  # ensures centering
+    
     return fig
 
 def show_accueil():
