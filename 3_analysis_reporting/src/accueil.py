@@ -10,6 +10,9 @@ from collections import Counter
 from wordcloud import STOPWORDS
 import numpy as np
 import plotly.graph_objects as go
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
+import streamlit as st
 
 @st.cache_data  
 def load_data():
@@ -165,11 +168,7 @@ def plot_contract_distribution(df, contract_col='typeContrat', top_n=3, height=4
     
     return fig
 
-from wordcloud import WordCloud, STOPWORDS
-import matplotlib.pyplot as plt
-import streamlit as st
-
-def plot_wordcloud(df, text_col='intitule', max_words=100, width=800, height=400):
+def plot_wordcloud(df, text_col='intitule', max_words=100, width=800, height=500):
     # Combine all text from the column
     text = ' '.join(df[text_col].dropna().astype(str))
     
