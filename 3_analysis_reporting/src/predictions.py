@@ -79,7 +79,7 @@ def job_offer_form():
             }])
 
             # Load pipeline
-            inference_pipeline = joblib.load("data/job_contract_pipeline.pkl")
+            inference_pipeline = joblib.load("3_analysis_reporting/data/job_contract_pipeline.pkl")
             pred_numeric = inference_pipeline.predict(new_job)
             pred_label_num = pred_numeric[0]  # get scalar value
 
